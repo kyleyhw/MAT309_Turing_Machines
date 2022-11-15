@@ -1,8 +1,5 @@
 import numpy as np
 
-tape = '011110'
-tape = np.array([int(x) for x in list(tape)])
-
 class Machine():
     def __init__(self, table):
         self.table = list(table)
@@ -45,9 +42,14 @@ def print_output(state, tape, position):
     tape = merge_list_to_string(tape)
     print(state + ':' + tape[:position] + '\033[4m' + tape[position] + '\033[0m' + tape[position + 1:])
 
-table = np.loadtxt('table.txt', dtype=str, delimiter=',')
 
+
+table = np.loadtxt('table.txt', dtype=str, delimiter=',')
 machine = Machine(table)
+
+tape = '011110'
+tape = np.array([int(x) for x in list(tape)])
+
 
 (state, tape, position) = (1, tape, 0)
 

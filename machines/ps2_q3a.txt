@@ -1,0 +1,5 @@
+1,0R1,0R2
+2,1L3,1R2
+3,1L4,1L3
+4,BLANK,BLANK
+#on input 0 1^m 0 1^k returns 0 1^(m+k+1)

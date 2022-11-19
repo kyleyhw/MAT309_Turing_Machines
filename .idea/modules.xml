@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/MAT309_quiz_7.iml" filepath="$PROJECT_DIR$/.idea/MAT309_quiz_7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/MAT309_turing_machines.iml" filepath="$PROJECT_DIR$/.idea/MAT309_turing_machines.iml" />
     </modules>
   </component>
 </project>

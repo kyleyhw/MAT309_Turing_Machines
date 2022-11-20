@@ -37,10 +37,10 @@ class Machine():
     def print_output(self, state, tape, position, show_triple = False):
         state = str(state).rjust(max([len(x[0]) for x in self.table]), ' ')
         tape = merge_list_to_string(tape)
-        print(state + ':' + tape[:position] + '\033[4m' + tape[position] + '\033[0m' + tape[position + 1:], end='\t \t')
+        print(state + ':' + tape[:position] + '\033[4m' + tape[position] + '\033[0m' + tape[position + 1:], end='\t \t \t')
 
         if show_triple == True:
             position = str(position)
-            print('( ' + state + ' , ' + position + ' , ' + tape + ' )', end='')
+            print('( ' + state + ' , ' + position + ' , ' + tape + '... )', end='')
 
         print()

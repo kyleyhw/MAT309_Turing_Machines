@@ -1,8 +1,23 @@
 from misc_functions import merge_list_to_string
+from pandas import DataFrame
 
 class Machine():
     def __init__(self, table):
         self.table = list(table)
+        self.states = [x[0] for x in self.table]
+        self.zero_instructions = [x[1] for x in self.table]
+        self.one_instructions = [x[2] for x in self.table]
+        for i in range(len(table)):
+            if self.zero_instructions[i] == 'BLANK':
+                self.zero_instructions[i] = ' '
+            if self.one_instructions[i] == 'BLANK':
+                self.one_instructions[i] = ' '
+
+    def print_machine_table(self, name):
+        d = {'0':self.zero_instructions, '1':self.one_instructions}
+        dframe = DataFrame(data=d, index=self.states)
+        dframe.columns.name = name
+        print(dframe)
 
     def interpret_instruction(self, state, tape, position):
         row = self.table[state-1]
@@ -41,6 +56,6 @@ class Machine():
 
         if show_triple == True:
             position = str(position)
-            print('( ' + state + ' , ' + position + ' , ' + tape + '... )', end='')
+            print('( ' + state + ' , ' + position + ', ' + tape + '... )', end='')
 
         print()

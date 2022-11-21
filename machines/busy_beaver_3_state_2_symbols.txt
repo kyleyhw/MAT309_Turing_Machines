@@ -1,0 +1,5 @@
+1,1R2,1R4
+2,0R3,1R2
+3,1L3,1L1
+4,BLANK,BLANK
+#input blank tape, taken from https://webusers.imj-prg.fr/~pascal.michel/bbc.html

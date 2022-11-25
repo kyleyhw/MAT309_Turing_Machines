@@ -19,7 +19,7 @@ class Machine():
         dframe.columns.name = name
         print(dframe)
 
-    def interpret_instruction(self, state, tape, position):
+    def interpret_instruction(self, state, position, tape):
         row = self.table[state-1]
         if tape[position] == 0:
             instruction = row[1]
@@ -32,7 +32,7 @@ class Machine():
         if instruction == 'BLANK':
             position = -2
             print('HALTED')
-            return (state, tape, position)
+            return (state, position, tape)
 
         (new_value, move, new_state) = (instruction[0], instruction[1], instruction[2:])
         (new_value, move, new_state) = (int(new_value), move, int(new_state))
@@ -47,9 +47,9 @@ class Machine():
             print('INVALID INSTRUCTION')
             return None
 
-        return (int(new_state), tape, position)
+        return (int(new_state), position, tape)
 
-    def print_output(self, state, tape, position, show_triple = False):
+    def print_output(self, state, position, tape, show_triple = False):
         state = str(state).rjust(max([len(x[0]) for x in self.table]), ' ')
         tape = merge_list_to_string(tape)
         print(state + ':' + tape[:position] + '\033[4m' + tape[position] + '\033[0m' + tape[position + 1:], end='\t \t \t')
